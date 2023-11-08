@@ -185,3 +185,14 @@ VALUES
     JOIN Hero h ON p.hero_id = h.hero_id
     WHERE p.player_experience > 0;
     
+/*6	Create new branch named "feat/select-heroes-archers"
+
+	Provide a list of heroes classified as archers.*/
+
+    SELECT hero_id, hero_name
+    FROM Hero
+    WHERE class_id IN (
+        SELECT class_id
+        FROM Class
+        WHERE class_description LIKE '&Archer%'
+    );
